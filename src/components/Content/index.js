@@ -1,11 +1,17 @@
 import axios from 'axios';
 import { FaUserCircle } from 'react-icons/fa';
 import React, { useEffect, useState } from 'react';
+import ReactPlayer from 'react-player';
 
 const Content = () => {
   const [reciters, setReciters] = useState([]);
   const [activeReciterId, setActiveReciterId] = useState([]);
   const [chapters, setChapters] = useState([]);
+  const [reciterDetails, setReciterDetails] = useState(null);
+  const [chapterDetails, setChapterDetails] = useState(null);
+  const [chapterPages, setChapterPages] = useState([]);
+  const [reciterServer, setReciterServer] = useState([]);
+  let mp3Url = '';
 
   useEffect(() => {
     const getRecitersList = async () => {
@@ -26,12 +32,31 @@ const Content = () => {
         });
     };
     reciters && reciters.length > 0 && getChapters();
-  }, []);
+  }, [reciters]);
 
   const handleReciterSelection = (e, reciter) => {
     const id = reciter.id;
     setActiveReciterId(id);
-    console.log(activeReciterId);
+    setReciterDetails(reciter);
+    setReciterServer(reciter.Server);
+  };
+
+  const handleChapterSelection = (e, chapter) => {
+    setChapterPages(chapter.pages);
+    setChapterDetails(chapter);
+  };
+
+  const fetchMp3Files = async () => {
+    fetch(`${reciterServer}`)
+      .then((results) => results.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+  fetchMp3Files();
+
+  const audioLink = (reciter, number) => {
+    return reciter + '/' + ('00' + number).slice(-3) + '.mp3';
   };
 
   return (
@@ -60,6 +85,9 @@ const Content = () => {
                   ))
                 ) : (
                   <div className="text-center">
+                    <p className="alert alert-danger">
+                      Please Select a Chapter to see Chapter Details
+                    </p>
                     <div className="spinner-border"></div>
                   </div>
                 )}
@@ -71,20 +99,100 @@ const Content = () => {
               <h2 className="text-center">Chapters (Surats)</h2>
               <hr />
               <ul>
-                {chapters && chapters.length > 0 && reciters ? (
+                {reciters && chapters && chapters.length > 0 ? (
                   chapters.map((chapter) => (
-                    <li key={chapter.id}>{chapter.name_simple}</li>
+                    <div key={chapter.id}>
+                      <li
+                        className="none"
+                        value={chapter}
+                        onClick={(e) => handleChapterSelection(e, chapter)}
+                      >
+                        <span>
+                          {' '}
+                          Revelation Order: {chapter.revelation_order}
+                        </span>
+                        <br />
+                        <span> Chapter Number: {chapter.id}</span>
+                        <br />
+                        <span>Chapter Name: {chapter.name_simple}</span>
+                        <br />
+                        <span>Chapter Arabic Name: {chapter.name_arabic}</span>
+                      </li>
+                      <hr />
+                    </div>
                   ))
                 ) : (
-                  <div className="text-center">Loading ...</div>
+                  <div className="text-center">
+                    <div className="spinner-border"></div>
+                  </div>
                 )}
               </ul>
             </div>
           </div>
           <div className="col-lg-4 col-md-12 col-sm-12">
             <div className="custom_col">
-              <h2 className="text-center">Media Player</h2>
+              <h2 className="text-center">MP3 Player</h2>
               <hr />
+              <div>
+                {chapterDetails !== null && reciterDetails !== null ? (
+                  <ul className="alert alert-success">
+                    <li className="chapter_details">
+                      You've Selected:
+                      <hr />
+                    </li>
+                    <li className="chapter_details">
+                      Chapter Number: {chapterDetails.id}
+                    </li>
+                    <li className="chapter_details">
+                      Chapter English Name: {chapterDetails.name_simple}
+                    </li>
+                    <li className="chapter_details">
+                      Chapter Arabic Name: {chapterDetails.name_arabic}
+                      <hr />
+                    </li>
+                    <li className="chapter_details">
+                      Reciter Name: {reciterDetails.name}
+                    </li>
+                    <li className="chapter_details">
+                      Reciter Id: {reciterDetails.id}
+                      <hr />
+                    </li>
+                    <li className="chapter_details">
+                      Revelation Location: {chapterDetails.revelation_place}
+                    </li>
+                    <li className="chapter_details">
+                      Revelation Order: {chapterDetails.revelation_order}
+                      <br />
+                    </li>
+                    <li className="chapter_details">
+                      Verses Count: {chapterDetails.verses_count}
+                    </li>
+                    <li className="chapter_details">
+                      Page Number: {chapterDetails.pages[0]}
+                      <hr />
+                    </li>
+                    <li className="chapter_details">
+                      <ReactPlayer className = 'react_player'
+                        url={audioLink(
+                          reciterDetails.Server,
+                          chapterDetails.id
+                        )}
+                        controls={true}
+                        playing={false}
+                        width='200'
+                        height='100px'
+                      />
+                    </li>
+                  </ul>
+                ) : (
+                  <ul>
+                    <li className="alert alert-warning chapter_details">
+                      Select Reciter and Chapter to get audio and chapter
+                      details...
+                    </li>
+                  </ul>
+                )}
+              </div>
             </div>
           </div>
         </div>

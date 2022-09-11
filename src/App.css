@@ -67,6 +67,10 @@
   list-style: none;
   padding: 1rem !important;
 }
+.none:hover,
+.none:visited {
+  color: yellow;
+}
 
 .none a {
   color: #fff;
@@ -74,4 +78,21 @@
 }
 .none a svg {
   margin-right: 10px;
+}
+
+svg {
+  margin-right: 10px;
+}
+
+.chapter_details {
+  list-style: none;
+  font-size: 0.92rem;
+}
+
+.chapter_details:last-child {
+  padding-top: 40px;
+}
+
+.react_player {
+  margin-top: -90px;
 }
