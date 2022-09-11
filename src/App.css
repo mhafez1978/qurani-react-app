@@ -15,6 +15,10 @@
   justify-content: space-between;
   align-items: center;
 }
+.heading{
+  color:#fff;
+  padding-top:4rem;
+}
 .brand {
   font-family: 'Noto Kufi Arabic', sans-serif;
   font-weight: 900;

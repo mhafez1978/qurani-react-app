@@ -64,9 +64,12 @@ const Content = () => {
       <div className="content_overlay"></div>
       <div className="container">
         <div className="row">
+          <h5 className="heading text-center">
+            Select from Reciters List, then select from Chapters list. Click play to Listen ...Enjoy
+          </h5>
           <div className="col-lg-4 col-md-12 col-sm-12">
             <div className="custom_col">
-              <h2 className="text-center">Reciters</h2>
+              <h3 className="text-center">Step 1: Select A Reciters</h3>
               <hr />
               <ul>
                 {reciters && reciters.length > 0 ? (
@@ -85,9 +88,9 @@ const Content = () => {
                   ))
                 ) : (
                   <div className="text-center">
-                    <p className="alert alert-danger">
+                    <div className="alert alert-danger">
                       Please Select a Chapter to see Chapter Details
-                    </p>
+                    </div>
                     <div className="spinner-border"></div>
                   </div>
                 )}
@@ -96,7 +99,7 @@ const Content = () => {
           </div>
           <div className="col-lg-4 col-md-12 col-sm-12">
             <div className="custom_col">
-              <h2 className="text-center">Chapters (Surats)</h2>
+              <h3 className="text-center">Step 2: Select Chapter</h3>
               <hr />
               <ul>
                 {reciters && chapters && chapters.length > 0 ? (
@@ -131,7 +134,7 @@ const Content = () => {
           </div>
           <div className="col-lg-4 col-md-12 col-sm-12">
             <div className="custom_col">
-              <h2 className="text-center">MP3 Player</h2>
+              <h3 className="text-center">Step 3: Click Play</h3>
               <hr />
               <div>
                 {chapterDetails !== null && reciterDetails !== null ? (
@@ -172,15 +175,16 @@ const Content = () => {
                       <hr />
                     </li>
                     <li className="chapter_details">
-                      <ReactPlayer className = 'react_player'
+                      <ReactPlayer
+                        className="react_player"
                         url={audioLink(
                           reciterDetails.Server,
                           chapterDetails.id
                         )}
                         controls={true}
                         playing={false}
-                        width='200'
-                        height='100px'
+                        width="200"
+                        height="100px"
                       />
                     </li>
                   </ul>
