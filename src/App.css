@@ -53,6 +53,15 @@
   min-height: 90vh;
   width: 100vw;
 }
+.custom {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  margin-top: 20px;
+  margin-bottom: -20px;
+  background-color: black;
+  width: 100%;
+}
 
 .custom_col {
   margin-top: 50px;
@@ -105,5 +114,10 @@ svg {
   .custom_col {
     height: 33vh;
     border: yellow 10px solid;
+    border: 15px;
+  }
+  .custom_col h3 {
+    color: yellow;
+    background-color: #222;
   }
 }

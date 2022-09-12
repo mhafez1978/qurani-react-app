@@ -64,14 +64,14 @@ const Content = () => {
       <div className="content_overlay"></div>
       <div className="container">
         <div className="row">
-          <h5 className="heading text-center">
+          <h2 className="heading text-center">
             Select from Reciters List, then select from Chapters list. Click
             play to Listen ...Enjoy
-          </h5>
+          </h2>
           <div className="col-lg-4 col-md-12 col-sm-12">
+            <h3 className="text-center custom">Step 1 : Select A Reciters</h3>
+            <hr />
             <div className="custom_col">
-              <h3 className="text-center">Step 1: Select A Reciters</h3>
-              <hr />
               <ul>
                 {reciters && reciters.length > 0 ? (
                   reciters.map((reciter) => (
@@ -90,7 +90,7 @@ const Content = () => {
                 ) : (
                   <div className="text-center">
                     <div className="alert alert-danger">
-                      Please Select a Chapter to see Chapter Details
+                      Loading Chapter Details,...
                     </div>
                     <div className="spinner-border"></div>
                   </div>
@@ -99,9 +99,9 @@ const Content = () => {
             </div>
           </div>
           <div className="col-lg-4 col-md-12 col-sm-12">
+            <h3 className="text-center custom">Step 2 : Select Chapter</h3>
+            <hr />
             <div className="custom_col">
-              <h3 className="text-center">Step 2: Select Chapter</h3>
-              <hr />
               <ul>
                 {reciters && chapters && chapters.length > 0 ? (
                   chapters.map((chapter) => (
@@ -131,6 +131,7 @@ const Content = () => {
                   ))
                 ) : (
                   <div className="text-center">
+                    <div className="text-center">Loading ...</div>
                     <div className="spinner-border"></div>
                   </div>
                 )}
@@ -138,9 +139,9 @@ const Content = () => {
             </div>
           </div>
           <div className="col-lg-4 col-md-12 col-sm-12">
+            <h3 className="text-center custom">Step 3 : Click Play</h3>
+            <hr />
             <div className="custom_col">
-              <h3 className="text-center">Step 3: Click Play</h3>
-              <hr />
               <div>
                 {chapterDetails !== null && reciterDetails !== null ? (
                   <ul className="alert alert-success">
@@ -194,12 +195,13 @@ const Content = () => {
                     </li>
                   </ul>
                 ) : (
-                  <ul>
-                    <li className="alert alert-warning chapter_details">
-                      Select Reciter and Chapter to get audio and chapter
-                      details...
-                    </li>
-                  </ul>
+                  <div
+                    className="alert alert-warning chapter_details"
+                    style={{ paddingTop: -'20px' }}
+                  >
+                    Select Reciter and Chapter to get audio and chapter
+                    details...
+                  </div>
                 )}
               </div>
             </div>
