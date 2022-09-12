@@ -65,7 +65,8 @@ const Content = () => {
       <div className="container">
         <div className="row">
           <h5 className="heading text-center">
-            Select from Reciters List, then select from Chapters list. Click play to Listen ...Enjoy
+            Select from Reciters List, then select from Chapters list. Click
+            play to Listen ...Enjoy
           </h5>
           <div className="col-lg-4 col-md-12 col-sm-12">
             <div className="custom_col">
@@ -110,17 +111,21 @@ const Content = () => {
                         value={chapter}
                         onClick={(e) => handleChapterSelection(e, chapter)}
                       >
-                        <span>
-                          {' '}
-                          Revelation Order: {chapter.revelation_order}
-                        </span>
-                        <br />
                         <span> Chapter Number: {chapter.id}</span>
                         <br />
                         <span>Chapter Name: {chapter.name_simple}</span>
                         <br />
                         <span>Chapter Arabic Name: {chapter.name_arabic}</span>
+                        <br />
+                        <span>
+                          Revelation Order: {chapter.revelation_order}
+                        </span>
+                        <br />
+                        <span>
+                          Revelation Location: {chapter.revelation_place}
+                        </span>
                       </li>
+
                       <hr />
                     </div>
                   ))

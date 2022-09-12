@@ -15,9 +15,9 @@
   justify-content: space-between;
   align-items: center;
 }
-.heading{
-  color:#fff;
-  padding-top:4rem;
+.heading {
+  color: #fff;
+  padding-top: 4rem;
 }
 .brand {
   font-family: 'Noto Kufi Arabic', sans-serif;
@@ -99,4 +99,11 @@ svg {
 
 .react_player {
   margin-top: -90px;
+}
+
+@media only screen and (max-width: 991px) {
+  .custom_col {
+    height: 33vh;
+    border: yellow 10px solid;
+  }
 }
