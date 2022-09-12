@@ -16,7 +16,7 @@ const Menu = () => {
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>قرآني / Quraani</Offcanvas.Title>
           <center>
-            <small>Listen &amp; Pounder...</small>
+            <small>Listen and pounder...</small>
           </center>
         </Offcanvas.Header>
         <Offcanvas.Body>

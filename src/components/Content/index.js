@@ -70,6 +70,7 @@ const Content = () => {
           </h2>
           <div className="col-lg-4 col-md-12 col-sm-12">
             <h3 className="text-center custom">Step 1 : Select A Reciters</h3>
+
             <hr />
             <div className="custom_col">
               <ul>
@@ -100,6 +101,7 @@ const Content = () => {
           </div>
           <div className="col-lg-4 col-md-12 col-sm-12">
             <h3 className="text-center custom">Step 2 : Select Chapter</h3>
+
             <hr />
             <div className="custom_col">
               <ul>
@@ -179,6 +181,9 @@ const Content = () => {
                     <li className="chapter_details">
                       Page Number: {chapterDetails.pages[0]}
                       <hr />
+                      <br />
+                      <br />
+                      <br />
                     </li>
                     <li className="chapter_details">
                       <ReactPlayer
@@ -192,15 +197,13 @@ const Content = () => {
                         width="200"
                         height="100px"
                       />
+                      <br />
                     </li>
                   </ul>
                 ) : (
-                  <div
-                    className="alert alert-warning chapter_details"
-                    style={{ paddingTop: -'20px' }}
-                  >
-                    Select Reciter and Chapter to get audio and chapter
-                    details...
+                  <div className="alert alert-warning chapter_details">
+                    Select a reciter from Step1, then select a Chapter from
+                    Step2 to see results here ...
                   </div>
                 )}
               </div>
