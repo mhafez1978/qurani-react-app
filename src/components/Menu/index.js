@@ -12,16 +12,25 @@ const Menu = () => {
       <span className="navLink" onClick={handleShow}>
         <GiHamburgerMenu />
       </span>
-
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Quraani</Offcanvas.Title>
+          <Offcanvas.Title>قرآني / Quraani</Offcanvas.Title>
+          <center>
+            <small>Listen &amp; Pounder...</small>
+          </center>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <ul className='offCanvas_menu'>
-            <li>Home</li>
-            <li>About</li>
-            <li>Contact</li>
+          <ul className="offCanvas_menu">
+            <li>
+              This application was build by
+              <br />
+              Mohamed Hafez of Lowell Massachussetts.
+              <hr />
+            </li>
+            <li>
+              Contact: <br />
+              admin@movewebdesign.com
+            </li>
           </ul>
         </Offcanvas.Body>
       </Offcanvas>
