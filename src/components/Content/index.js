@@ -120,10 +120,6 @@ const Content = () => {
                         <span>Chapter Arabic Name: {chapter.name_arabic}</span>
                         <br />
                         <span>
-                          Revelation Order: {chapter.revelation_order}
-                        </span>
-                        <br />
-                        <span>
                           Revelation Location: {chapter.revelation_place}
                         </span>
                       </li>
