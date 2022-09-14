@@ -69,7 +69,7 @@ const Content = () => {
             play to Listen ...Enjoy
           </h2>
           <div className="col-lg-4 col-md-12 col-sm-12">
-            <h3 className="text-center custom">Step 1 : Select A Reciters</h3>
+            <h3 className="text-center custom">Step 1 : Select A Reciter</h3>
 
             <hr />
             <div className="custom_col">
