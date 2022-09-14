@@ -123,7 +123,6 @@ const Content = () => {
                           Revelation Location: {chapter.revelation_place}
                         </span>
                       </li>
-
                       <hr />
                     </div>
                   ))
