@@ -22,7 +22,7 @@ const Menu = () => {
         <Offcanvas.Body>
           <ul className="offCanvas_menu">
             <li>
-              This application was build by
+              This application was built by
               <br />
               Mohamed Hafez of Lowell Massachussetts.
               <hr />

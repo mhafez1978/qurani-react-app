@@ -5,13 +5,13 @@ import ReactPlayer from 'react-player';
 
 const Content = () => {
   const [reciters, setReciters] = useState([]);
-  const [activeReciterId, setActiveReciterId] = useState([]);
+  // const [activeReciterId, setActiveReciterId] = useState([]);
   const [chapters, setChapters] = useState([]);
   const [reciterDetails, setReciterDetails] = useState(null);
   const [chapterDetails, setChapterDetails] = useState(null);
-  const [chapterPages, setChapterPages] = useState([]);
+  // const [chapterPages, setChapterPages] = useState([]);
   const [reciterServer, setReciterServer] = useState([]);
-  let mp3Url = '';
+  // let mp3Url = '';
 
   useEffect(() => {
     const getRecitersList = async () => {
@@ -36,13 +36,13 @@ const Content = () => {
 
   const handleReciterSelection = (e, reciter) => {
     const id = reciter.id;
-    setActiveReciterId(id);
+    // setActiveReciterId(id);
     setReciterDetails(reciter);
     setReciterServer(reciter.Server);
   };
 
   const handleChapterSelection = (e, chapter) => {
-    setChapterPages(chapter.pages);
+    // setChapterPages(chapter.pages);
     setChapterDetails(chapter);
   };
 
